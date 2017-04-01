@@ -18,6 +18,7 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".HelpScreen" />
         <activity android:name=".ThankYouScreen" />
+        <activity android:name=".Website"></activity>
     </application>
 
 </manifest>
