@@ -11,16 +11,6 @@
     tools:context="com.daviidli.bestbuy.HelpScreen">
 
     <TextView
-        android:text="Hello, a Best Buy employee will be with you shortly."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
-        android:id="@+id/textView"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:text="Please enter your name: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,31 +18,70 @@
         android:layout_alignStart="@+id/textView"
         android:layout_marginTop="60dp"
         android:id="@+id/textView2"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/Name"
-        android:layout_marginStart="33dp"
+        android:selectAllOnFocus="true"
+        android:hint="Name"
+        android:textSize="24sp"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="17dp"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_alignEnd="@+id/textView" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="600dp"
+        android:layout_marginTop="78dp"
+        android:layout_below="@+id/Name"
+        android:layout_centerHorizontal="true"
+        android:layout_height="200dp">
+
+    <RadioButton
+        android:id="@+id/radio1"
+        android:layout_width="wrap_content"
+        android:checked="true"
+        android:textSize="20sp"
+        android:layout_height="48dp" />
+
+    <RadioButton
+        android:id="@+id/radio2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:checked="true"
+        android:textSize="20sp"/>
+
+    <RadioButton
+        android:id="@+id/radio3"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:checked="true"
+        android:textSize="20sp"/>
+
+    </RadioGroup>
 
     <Button
         android:text="Submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Name"
-        android:layout_alignEnd="@+id/Name"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="74dp"
         android:id="@+id/HelpSubmit"
-        android:onClick="SubmitInfo" />
+        android:onClick="SubmitInfo"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/radioGroup"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Hello, a Best Buy employee will be with you shortly."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:id="@+id/textView"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

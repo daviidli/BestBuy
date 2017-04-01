@@ -21,17 +21,6 @@
         android:textSize="36sp" />
 
     <Button
-        android:text="View ETA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:id="@+id/button4"
-        android:textSize="18sp"
-        android:onClick="viewETA"
-        android:layout_above="@+id/Back"
-        android:layout_centerHorizontal="true" />
-
-    <Button
         android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
