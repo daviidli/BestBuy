@@ -10,8 +10,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.daviidli.bestbuy.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <Button
+        android:text="Request Help"
+        android:id="@+id/button"
+        android:layout_width="900dp"
+        android:layout_height="250dp"
+        android:textSize="50sp"
+        android:elevation="10dp"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="77dp"
+        android:onClick="Help" />
+
+    <Button
+        android:text="Chat"
+        android:id="@+id/button3"
+        android:layout_height="200dp"
+        android:layout_marginBottom="78dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="425dp"
+        android:textSize="36sp" />
+
+    <Button
+        android:text="Product Search"
+        android:id="@+id/button2"
+        android:layout_height="200dp"
+        android:layout_width="425dp"
+        android:layout_alignTop="@+id/button3"
+        android:layout_alignParentEnd="true"
+        android:textSize="36sp" />
 </RelativeLayout>
