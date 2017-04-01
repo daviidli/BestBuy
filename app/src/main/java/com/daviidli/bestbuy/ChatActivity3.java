@@ -5,20 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class ChatActivity3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chat3);
     }
-
-    public void Help(View view) {
-        Intent k = new Intent(MainActivity.this, HelpScreen.class);
+    public void Back(View view) {
+        Intent k = new Intent(ChatActivity3.this, MainActivity.class);
         startActivity(k);
     }
-    public void Chat(View view){
-        Intent k = new Intent (MainActivity.this, ChatActivity.class);
+    public void Next(View view) {
+        Intent k = new Intent(ChatActivity3.this, ChatActivity4.class);
         startActivity(k);
     }
 }
