@@ -22,8 +22,10 @@ public class qNode {
     void addNode(qNode node){
         qBranch.add(node);
     }
-    void removeNode(qNode node){
-        qBranch.remove(node);
+    void removeNode(qNode node){qBranch.remove(node);}
+
+    String getString(){
+        return this.question;
     }
 
 }

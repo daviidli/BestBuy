@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(k);
     }
 
+    public void Chat(View view){
+        Intent k = new Intent (MainActivity.this, ChatActivity.class);
+        startActivity(k);
+    }
+
     public void website(View view) {
         Intent k = new Intent(MainActivity.this, Website.class);
         startActivity(k);
