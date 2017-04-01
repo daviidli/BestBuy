@@ -18,10 +18,12 @@ import java.util.LinkedList;
 
 public class ThankYouScreen extends AppCompatActivity {
 
+    public int eta = 0;
+
     private FirebaseDatabase database;
-    private int queueNumber = 0;
     private String name = HelpScreen.name;
     private LinkedList<Customer> customerList = new LinkedList<>();
+    public static int TIMEPERCUSTOMER = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class ThankYouScreen extends AppCompatActivity {
         DatabaseReference databaseRefListCustomers = databaseRefChildCustomers.child("listCustomers").push();
 
 
-        Customer customer = new Customer(name, queueNumber);
+        Customer customer = new Customer(name);
         databaseRefListCustomers.setValue(customer);
 //        databaseRefChildQueue.addValueEventListener(new ValueEventListener() {
 //
@@ -51,10 +53,11 @@ public class ThankYouScreen extends AppCompatActivity {
 //                // Failed to read value
 //            }
 //        });
-        ++queueNumber;
+        //++queueNumber;
         //databaseRefChildQueue.setValue(queueNumber);
 
         databaseRefChildCustomers.addChildEventListener(new ChildEventListener() {
+
           @Override
           public void onChildAdded(DataSnapshot dataSnapshot, String s) {
               Customer customer = dataSnapshot.getValue(Customer.class);
@@ -84,11 +87,17 @@ public class ThankYouScreen extends AppCompatActivity {
       });
 
         TextView thankYouMessage = (TextView) findViewById(R.id.thankYouMessage);
-        thankYouMessage.setText("Thank you " + name + ", you are in position " + queueNumber + " of " +
-                "the queue. An employee will be with you shortly. :)");
+        thankYouMessage.setText("Thank you " + name + ". An employee will be with you shortly.");
     }
 
     public void goBack(View view) {
+        Intent k = new Intent(ThankYouScreen.this, MainActivity.class);
+        startActivity(k);
+    }
+
+    public void viewETA(View view) {
+        eta = customerList.size() * TIMEPERCUSTOMER;
+
         Intent k = new Intent(ThankYouScreen.this, MainActivity.class);
         startActivity(k);
     }
