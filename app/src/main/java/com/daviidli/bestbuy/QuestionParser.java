@@ -30,7 +30,6 @@ public class QuestionParser {
     }
     private qNode parseQuestion (JSONObject inputObject) throws JSONException {
         JSONArray questionList= inputObject.getJSONArray("MainQ");
-        //qNode root; //= new qNode(null);
         if(questionList.length() > 0) {
             qNode root = null;
             for (int i = 0; i < questionList.length(); i++) {

@@ -40,5 +40,6 @@
         android:layout_width="425dp"
         android:layout_alignTop="@+id/button3"
         android:layout_alignParentEnd="true"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:onClick="website" />
 </RelativeLayout>
