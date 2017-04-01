@@ -19,6 +19,7 @@ import java.util.LinkedList;
 public class ThankYouScreen extends AppCompatActivity {
 
     private FirebaseDatabase database;
+    private int queueNumber = 0;
     private String name = HelpScreen.name;
     private LinkedList<Customer> customerList = new LinkedList<>();
 
@@ -29,27 +30,29 @@ public class ThankYouScreen extends AppCompatActivity {
         setContentView(R.layout.activity_thank_you_screen);
 
         database = FirebaseDatabase.getInstance();
-        //DatabaseReference databaseRefChildQueue = database.getReference().child("queue");
+//        DatabaseReference databaseRefChildQueue = database.getReference().child("queue");
 
         DatabaseReference databaseRefChildCustomers = database.getReference().child("customers");
         DatabaseReference databaseRefListCustomers = databaseRefChildCustomers.child("listCustomers").push();
 
+
         Customer customer = new Customer(name, queueNumber);
-        //queueNumber+=1;
-        //databaseRefChildQueue.setValue(queueNumber);
         databaseRefListCustomers.setValue(customer);
-        /*databaseRefChildQueue.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                queueNumber = dataSnapshot.getValue(Integer.class);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-            }
-        });*/
+//        databaseRefChildQueue.addValueEventListener(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                queueNumber = dataSnapshot.getValue(Integer.class);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                // Failed to read value
+//            }
+//        });
+        ++queueNumber;
+        //databaseRefChildQueue.setValue(queueNumber);
 
         databaseRefChildCustomers.addChildEventListener(new ChildEventListener() {
           @Override
