@@ -15,8 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HelpScreen"></activity>
-        <activity android:name=".ThankYouScreen"></activity>
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
