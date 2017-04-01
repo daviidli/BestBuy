@@ -17,16 +17,28 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="87dp"
-        android:id="@+id/thankYouMessage" />
+        android:id="@+id/thankYouMessage"
+        android:textSize="36sp" />
+
+    <Button
+        android:text="View ETA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:id="@+id/button4"
+        android:textSize="18sp"
+        android:onClick="viewETA"
+        android:layout_above="@+id/Back"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="57dp"
+        android:layout_marginBottom="109dp"
         android:onClick="goBack"
-        android:id="@+id/Back" />
+        android:id="@+id/Back"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

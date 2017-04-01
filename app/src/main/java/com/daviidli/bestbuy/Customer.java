@@ -7,15 +7,16 @@ package com.daviidli.bestbuy;
 public class Customer {
 
     private String name;
-    private int queueNumber;
+    //private int queueNumber;
     //private Departments department;
 
     public Customer() {
+        // for Firebase
     }
 
-    public Customer(String name, int queueNumber/*, Departments department*/) {
+    public Customer(String name /*int queueNumber, Departments department*/) {
         this.name = name;
-        this.queueNumber = queueNumber;
+        //this.queueNumber = queueNumber;
         //this.department = department;
     }
 
@@ -29,7 +30,7 @@ public class Customer {
     }
     */
 
-    public int getQueue() {
-        return queueNumber;
-    }
+//    public int getQueue() {
+//        return queueNumber;
+//    }
 }
