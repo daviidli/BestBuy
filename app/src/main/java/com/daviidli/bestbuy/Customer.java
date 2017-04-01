@@ -10,6 +10,9 @@ public class Customer {
     private int queueNumber;
     //private Departments department;
 
+    public Customer() {
+    }
+
     public Customer(String name, int queueNumber/*, Departments department*/) {
         this.name = name;
         this.queueNumber = queueNumber;

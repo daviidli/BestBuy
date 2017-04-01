@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,25 +19,26 @@ import java.util.LinkedList;
 public class ThankYouScreen extends AppCompatActivity {
 
     private FirebaseDatabase database;
-    private int queueNumber = 0;
+    private String name = HelpScreen.name;
     private LinkedList<Customer> customerList = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_thank_you_screen);
 
-        EditText nameText = (EditText)findViewById(R.id.Name);
-        String name = nameText.getText().toString();
-
         database = FirebaseDatabase.getInstance();
-        DatabaseReference databaseRefChildQueue = database.getReference().child("queue");
-        databaseRefChildQueue.setValue(queueNumber);
-        DatabaseReference databaseRefChildCustomers = database.getReference().child("customers").push();
+        //DatabaseReference databaseRefChildQueue = database.getReference().child("queue");
 
-        Customer customer = new Customer(name, queueNumber++);
-        databaseRefChildCustomers.setValue(customer);
-        databaseRefChildQueue.addValueEventListener(new ValueEventListener() {
+        DatabaseReference databaseRefChildCustomers = database.getReference().child("customers");
+        DatabaseReference databaseRefListCustomers = databaseRefChildCustomers.child("listCustomers").push();
+
+        Customer customer = new Customer(name, queueNumber);
+        //queueNumber+=1;
+        //databaseRefChildQueue.setValue(queueNumber);
+        databaseRefListCustomers.setValue(customer);
+        /*databaseRefChildQueue.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -47,24 +49,36 @@ public class ThankYouScreen extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
             }
-        });
+        });*/
 
-        databaseRefChildCustomers.addValueEventListener(new ValueEventListener() {
+        databaseRefChildCustomers.addChildEventListener(new ChildEventListener() {
+          @Override
+          public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+              Customer customer = dataSnapshot.getValue(Customer.class);
+              customerList.addLast(customer);
+          }
 
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> customers = dataSnapshot.getChildren();
+          @Override
+          public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                for (DataSnapshot customer: customers) {
-                    Customer retrievedCustomer = customer.getValue(Customer.class);
-                    customerList.addLast(retrievedCustomer);
-                }
-            }
+          }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-            }
-        });
+          @Override
+          public void onChildRemoved(DataSnapshot dataSnapshot) {
+              Customer customer = dataSnapshot.getValue(Customer.class);
+              customerList.addLast(customer);
+          }
+
+          @Override
+          public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+          }
+
+          @Override
+          public void onCancelled(DatabaseError databaseError) {
+            System.out.print("error: " + databaseError);
+          }
+      });
 
         TextView thankYouMessage = (TextView) findViewById(R.id.thankYouMessage);
         thankYouMessage.setText("Thank you " + name + ", you are in position " + queueNumber + " of " +
