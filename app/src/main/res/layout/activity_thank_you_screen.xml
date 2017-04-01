@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_thank_you_screen"
     android:layout_width="match_parent"
@@ -8,26 +9,38 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.daviidli.bestbuy.ThankYouScreen">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
-        android:text="TextView"
+        android:id="@+id/thankYouMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/Back"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="87dp"
-        android:id="@+id/thankYouMessage"
+        android:layout_marginBottom="188dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
         android:textSize="36sp" />
 
     <Button
-        android:text="Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="109dp"
-        android:onClick="goBack"
         android:id="@+id/Back"
-        android:textSize="18sp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="109dp"
+        android:background="#f6eb16"
+        android:onClick="goBack"
+        android:text="Back"
+        android:textSize="24sp" />
 </RelativeLayout>

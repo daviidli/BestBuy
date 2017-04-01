@@ -8,11 +8,13 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class HelpScreen extends AppCompatActivity {
 
     public static String name = "no name";
     public static String selectedOption = "no option";
+    public static int queue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class HelpScreen extends AppCompatActivity {
         RadioButton radioButton = (RadioButton) findViewById(selectedId);
 
         selectedOption = radioButton.getText().toString();
+
+        queue += ThreadLocalRandom.current().nextInt(2, 6);;
 
         Intent k = new Intent(HelpScreen.this, ThankYouScreen.class);
         startActivity(k);

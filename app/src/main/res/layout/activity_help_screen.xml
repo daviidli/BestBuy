@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_help_screen"
     android:layout_width="match_parent"
@@ -8,80 +9,97 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.daviidli.bestbuy.HelpScreen">
 
     <TextView
-        android:text="Please enter your name: "
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Please enter your name: "
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="60dp"
-        android:id="@+id/textView2"
-        android:textSize="30sp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
+        android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:id="@+id/Name"
-        android:selectAllOnFocus="true"
         android:hint="Name"
-        android:textSize="24sp"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignEnd="@+id/textView" />
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="600dp"
-        android:layout_marginTop="78dp"
+        android:layout_height="175dp"
         android:layout_below="@+id/Name"
         android:layout_centerHorizontal="true"
-        android:layout_height="200dp">
+        android:layout_marginTop="30dp">
 
-    <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="wrap_content"
-        android:checked="true"
-        android:textSize="20sp"
-        android:layout_height="48dp" />
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
-    <RadioButton
-        android:id="@+id/radio2"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:checked="true"
-        android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
-    <RadioButton
-        android:id="@+id/radio3"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:checked="true"
-        android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
     </RadioGroup>
 
     <Button
-        android:text="Submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/HelpSubmit"
-        android:onClick="SubmitInfo"
-        android:layout_marginTop="60dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_below="@+id/radioGroup"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="#f6eb16"
+        android:onClick="SubmitInfo"
+        android:text="Submit"
+        android:textSize="24sp" />
 
     <TextView
-        android:text="Hello, a Best Buy employee will be with you shortly."
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:id="@+id/textView"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
+        android:text="Hello, a Best Buy employee will be with you shortly."
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ public class ThankYouScreen extends AppCompatActivity {
     private String name = HelpScreen.name;
     private String comments = HelpScreen.selectedOption;
     public Departments department = Departments.ComputerTabletsAccessories;
+    private int queue = HelpScreen.queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,8 @@ public class ThankYouScreen extends AppCompatActivity {
         databaseRefListCustomers.setValue(customer);
 
         TextView thankYouMessage = (TextView) findViewById(R.id.thankYouMessage);
-        thankYouMessage.setText("Thank you " + name + ". An employee will be with you shortly.");
+        thankYouMessage.setText("Thank you " + name + ". An employee will be with you within " +
+        queue + " mins.");
     }
 
     public void goBack(View view) {
