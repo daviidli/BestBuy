@@ -21,31 +21,43 @@ public class QuestionParser {
 
     public ArrayList<qNode> parseJSON(String json) throws JSONException {
         if (json != null) {
-            ArrayList<qNode> questionsList = new ArrayList<qNode>();
+            ArrayList<qNode> returnList = new ArrayList<qNode>();
             JSONObject jsonObj = new JSONObject(json);
-            questionsList.add(parseQuestion(jsonObj));
-            return questionsList;
+            returnList.add(parseQuestion(jsonObj));
+            return returnList;
         }
         else return null;
     }
     private qNode parseQuestion (JSONObject inputObject) throws JSONException {
-        JSONArray MainQuestions = inputObject.getJSONArray("MainQ");
-        qNode root = new qNode("");
-        for (int i = 0; i < MainQuestions.length(); i++) {
-            JSONObject c = MainQuestions.getJSONObject(i);
-            String qString = c.getString("question");
-            root.changeString(qString);
-            JSONArray cont = inputObject.getJSONArray("continue");
-            for (int j = 0; j<cont.length();i++){
-                JSONObject d = cont.getJSONObject(i);
-                root.addNode(parseQuestion(d));
+        JSONArray questionList= inputObject.getJSONArray("MainQ");
+        //qNode root; //= new qNode(null);
+        if(questionList.length() > 0) {
+            qNode root = null;
+            for (int i = 0; i < questionList.length(); i++) {
+                JSONObject c = questionList.getJSONObject(i);
+                String qString = c.getString("question");
+                JSONArray cont = inputObject.getJSONArray("continue");
+                root = new qNode(qString);
+                for (int j = 0; j < cont.length(); j++) {
+                    JSONObject d = cont.getJSONObject(j);
+
+                    root.addNode(parseArray(d));
+                }
+                root.changeString(qString);
             }
-
+            return root;
         }
-        return root;
+        else return null;
     }
-    private ArrayList<qNode> parseArray (){
-
-
+    private qNode parseArray (JSONObject inputObject) throws JSONException{
+        String question = inputObject.getString("question");
+        qNode node = new qNode(question);
+        JSONArray cont = inputObject.getJSONArray("continue");
+        if (cont.length() != 0) {
+            for (int i = 0; i < cont.length(); i++) {
+                node.addNode(parseArray(cont.getJSONObject(i)));
+            }
+        }
+        return node;
     }
 }
