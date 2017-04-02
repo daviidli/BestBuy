@@ -1,45 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_chat"
+    android:id="@+id/activity_chat3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.daviidli.bestbuy.ChatActivity">
+    tools:context="com.daviidli.bestbuy.ChatActivity3">
 
     <Button
-
+        android:text="closing?"
+        android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="53dp"
-        android:id="@+id/button0"
+        android:id="@+id/button5"
+        android:layout_below="@+id/button4"
+        android:layout_alignStart="@+id/button4"
+        android:layout_marginTop="53dp" />
+
+    <Button
+        android:text="time until estimated assistance?"
+
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="58dp"
+        android:id="@+id/button4"
+        android:layout_marginEnd="148dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:text="Where is..."
-        android:layout_width="200dp" />
+        android:layout_alignParentEnd="true"
+        android:onClick="Next"/>
 
-    <Button
-        android:text="How much ..."
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="53dp"
-        android:id="@+id/button1"
-        android:layout_below="@+id/button0"
-        android:layout_alignStart="@+id/button0"
-        android:onClick="Chat"/>
-
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="53dp"
-        android:id="@+id/button2"
-        android:text="What is..."
-        android:layout_below="@+id/button1"
-        android:layout_alignStart="@+id/button1" />
 
     <Button
         android:text="Back"
@@ -50,6 +41,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_width="100dp"
-        android:onClick="Main"/>
+        android:onClick="Back"/>
 
 </RelativeLayout>
